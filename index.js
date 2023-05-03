@@ -32,7 +32,7 @@ function tweet(Twt) {
   }
 }
 
-const Weatherjob = new CronJob("30 7 * * *", async () => {
+const Weatherjob = new CronJob("30 4 * * *", async () => {
   request(`${API_ENDPOINT}?key=${API_KEY}&q=${CITY}&days=${DAYS}&aqi=yes`, { json: true }, (err, res, body) => {
     if (err) { return console.log(err); }
     body.forecast.forecastday.forEach(day => {
