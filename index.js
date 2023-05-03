@@ -1,8 +1,20 @@
 require("dotenv").config({ path: __dirname + "/.env" });
+const { TwitterApi } = require("twitter-api-v2");
+
+const client = new TwitterApi({
+  appKey: process.env.API_KEY,
+  appSecret: process.env.API_SECRET,
+  accessToken: process.env.ACCESS_TOKEN,
+  accessSecret: process.env.ACCESS_SECRET,
+});
+
+const bearer = new TwitterApi(process.env.BEARER_TOKEN);
+
+const twitterClient = client.readWrite;
+const twitterBearer = bearer.readOnly;
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 4000;
-const { twitterClient } = require("./twitterClient.js")
 const CronJob = require("cron").CronJob;
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI(process.env.NEWS_API_KEY);
