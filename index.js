@@ -3,10 +3,10 @@ require("dotenv").config({ path: __dirname + "/.env" });
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 4000;
-const { twitterClient } = require("./functions/twitterClient.js")
+const { twitterClient } = require("./twitterClient.js")
 const CronJob = require("cron").CronJob;
 const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI(process.env.NEWS_API_KEY);
+const newsapi = new NewsAPI("25a585aa9a2b47a2bdd63b5ea440f6a7");
 const request = require('request');
 const API_KEY = '2f02bdb06a904f64a50192932231504';
 const API_ENDPOINT = 'http://api.weatherapi.com/v1/forecast.json';

@@ -1,15 +1,11 @@
 const { TwitterApi } = require("twitter-api-v2");
 
 const client = new TwitterApi({
-  appKey: NODE_ENV.API_KEY,
-  appSecret: NODE_ENV.API_SECRET,
-  accessToken: NODE_ENV.ACCESS_TOKEN,
-  accessSecret: NODE_ENV.ACCESS_SECRET,
+  appKey: "rtuEgAhtKoDctzu0MUEuyUUm1",
+  appSecret: "R7BYmYVWLbuTMJdFkbceap9IG7pZz0g5G7veTLtyfXZNke9C2J",
+  accessToken: "852855729425985536-fKk5kuQ6MZQQdQipypadCmlbC7r5KLo",
+  accessSecret: "zW1izq2MRZtCpCvjdh6z6njGoktqSVRdNgQ8f7CvAKOVw",
 });
 
-const bearer = new TwitterApi(NODE_ENV.BEARER_TOKEN);
-
 const twitterClient = client.readWrite;
-const twitterBearer = bearer.readOnly;
-
-module.exports = { twitterClient, twitterBearer };
+module.exports = {twitterClient};
