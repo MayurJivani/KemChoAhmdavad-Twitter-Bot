@@ -1,9 +1,8 @@
 require("dotenv").config({ path: __dirname + "/.env" });
-
+const { twitterClient } = require("./twitterClient.js")
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 4000;
-const { twitterClient } = require("./twitterClient.js")
 const CronJob = require("cron").CronJob;
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI("25a585aa9a2b47a2bdd63b5ea440f6a7");
@@ -32,7 +31,7 @@ function tweet(Twt) {
   }
 }
 
-const Weatherjob = new CronJob("30 4 * * *", async () => {
+const Weatherjob = new CronJob("30 7 * * *", async () => {
   request(`${API_ENDPOINT}?key=${API_KEY}&q=${CITY}&days=${DAYS}&aqi=yes`, { json: true }, (err, res, body) => {
     if (err) { return console.log(err); }
     body.forecast.forecastday.forEach(day => {
@@ -47,7 +46,7 @@ const EWeatherjob = new CronJob("0 18 * * *", async () => {
   request(`${API_ENDPOINT}?key=${API_KEY}&q=${CITY}&days=${DAYS}&aqi=yes`, { json: true }, (err, res, body) => {
     if (err) { return console.log(err); }
     body.forecast.forecastday.forEach(day => {
-      let ToTweet=`${CITY} Weather for Date: ${day.date} will be ${day.day.condition.text} \n Avg Temp: ${day.day.avgtemp_c}°C\nMax Temp: ${day.day.maxtemp_c}°C\nMin Temp: ${day.day.mintemp_c}°C\nAQI: ${day.day.air_quality.pm2_5}`
+      let ToTweet=`${CITY} Weather for Date: ${day.date} will be ${day.day.condition.text} \n Avg Temp: ${day.day.avgtemp_c}°C\nMax Temp: ${day.day.maxtemp_c}°C\nMin Temp: ${day.day.mintemp_c}°C\nAQI: ${body.current.air_quality.pm2_5}`
       tweet(ToTweet);
     });
   });
