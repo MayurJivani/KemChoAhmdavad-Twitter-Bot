@@ -55,9 +55,10 @@ const EWeatherjob = new CronJob("0 18 * * *", async () => {
 const Newsjob = new CronJob("0 9 * * *", async () => {
   const news = await newsapi.v2.everything({
     q: CITY,
-    sortBy: 'popularity',
+    sortBy: 'publishedAt',
     language: 'en',
-    pageSize: 1
+    pageSize: 1,
+    domains: 'indiatimes.com,google.com,indianexpress.com,hindustantimes.com'
   });
   const { title, url } = news.articles[0];
   console.log(`Title: ${title}, URL: ${url}`);
