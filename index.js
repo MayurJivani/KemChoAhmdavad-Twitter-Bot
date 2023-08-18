@@ -5,9 +5,9 @@ const app = express()
 const port = process.env.PORT || 4000;
 const CronJob = require("cron").CronJob;
 const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI("25a585aa9a2b47a2bdd63b5ea440f6a7");
+const newsapi = new NewsAPI("API_KEY_HERE");
 const request = require('request');
-const API_KEY = '2f02bdb06a904f64a50192932231504';
+const API_KEY = 'API_KEY_HERE';
 const API_ENDPOINT = 'http://api.weatherapi.com/v1/forecast.json';
 const CITY = 'Ahmedabad';
 const DAYS = 1;
@@ -75,7 +75,7 @@ const Ratejob = new CronJob("0 10 * * *", async () => {
       src: 'android-app',
       appVersion: '1.0',
       deviceId: 'abcd',
-      'X-RapidAPI-Key': 'a47c4545e1msh200a26be1673c5fp1533aajsnae905e7d35bf',
+      'X-RapidAPI-Key': 'API_KEY_HERE',
       'X-RapidAPI-Host': 'daily-fuel-prices-update-india.p.rapidapi.com'
     }
   };
@@ -89,7 +89,7 @@ const Ratejob = new CronJob("0 10 * * *", async () => {
     request.get({
       url: 'https://api.api-ninjas.com/v1/exchangerate?pair=USD_INR',
       headers: {
-        'X-Api-Key': 'B41JKwYhR96EZF7MWYaaKA==PzVWybPEKzK8OKCF'
+        'X-Api-Key': 'API_KEY_HERE'
       },
     }, function(error, response, body) {
       const data = JSON.parse(body);
