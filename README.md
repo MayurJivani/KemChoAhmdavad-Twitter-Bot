@@ -7,8 +7,6 @@
 [![Issues](https://img.shields.io/github/issues/MayurJivani/KemChoAhmdavad-Twitter-Bot?style=flat-square)](https://github.com/MayurJivani/KemChoAhmdavad-Twitter-Bot/issues)
 ![Code size](https://img.shields.io/github/languages/code-size/MayurJivani/KemChoAhmdavad-Twitter-Bot?style=flat-square)
 [![Last commit](https://img.shields.io/github/last-commit/MayurJivani/KemChoAhmdavad-Twitter-Bot?style=flat-square)](https://github.com/MayurJivani/KemChoAhmdavad-Twitter-Bot/commits/main)
-![kem cho](https://img.shields.io/badge/kem%20cho-majama-f39c12?style=flat-square)
-![posts](https://img.shields.io/badge/posts-on%20a%20cron-3498db?style=flat-square)
 
 A Twitter bot for Ahmedabad. It wakes on a cron schedule, pulls the city's news
 from NewsAPI and upcoming events from Eventbrite, and posts them through the
